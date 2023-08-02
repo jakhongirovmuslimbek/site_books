@@ -1,3 +1,4 @@
+
 {% load static %}
 {% if user.is_authenticated %}
 
@@ -85,6 +86,7 @@
                     </ul>
                     
                     <ul class="navbar-nav float-right">
+                        
                         <!-- <li class="nav-item search-box">
                             <form class="app-search d-lg-block" method="POST" action="qidiruv.php">
                                 <input type="text" class="form-control" name="qidiruv" placeholder="Qidiruv...">
@@ -206,12 +208,12 @@
   <br>
 <div class="page-content container-fluid">                                    
                 <div id="sahifa" class="row el-element-overlay">
-                    {% for book in users_book %}           
+                    {% for result in results %}           
 <div class="col-lg-3 col-md-9">
     
         <div class="card card-hover">
             <div class="el-card-item">
-                <div class="el-card-avatar el-overlay-1"> <img src=" {{ book.book_img.url }}" style="height: 400px;" alt="user">
+                <div class="el-card-avatar el-overlay-1"> <img src=" {{ result.book_img.url }}" style="height: 400px;" alt="user">
                     <div class="el-overlay">
                         <ul class="list-style-none el-info">
                             
@@ -222,11 +224,11 @@
                 <div class="d-flex no-block align-items-justify">
                     <div class="ml-3">
                         <a href=""><h4 class="mb-0" style="height: 40px; overflow: hidden;"><i class="fas fa-book"></i>
-                            {{ book.book_name }}                         </h4></a>
+                            {{ result.book_name }}                         </h4></a>
                         <h5 class="text-muted h5"><i class="fas fa-address-book"></i>
-                            {{ book.book_the_author }}                     </h5>
+                            {{ result.book_the_author }}                     </h5>
                         <h5 class="text-muted h5"><i class="far fa-folder-open"></i>
-                            {{ book.book_genre }}                         </h5>
+                            {{ result.book_genre }}                         </h5>
                         <h5 class="text-muted h5"><i class="fas fa-database"></i>
                             7 ta qism
                         </h5>

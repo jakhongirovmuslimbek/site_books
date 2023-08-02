@@ -48,7 +48,21 @@ def audiosView(request, book_id):
         "book_": book,
         "audios": audios
         
-        
 
     }     
     return render(request, 'books/audios.html', data)  
+
+
+def search_results(request):
+    if request.method == 'POST':
+        search_query = request.POST.get('search_query', '')
+
+        results = BookModel.objects.filter(
+            book_name__icontains = search_query
+        )
+
+        return render(request, 'books/search_results.html', {'results': results, 'query': search_query})
+
+        
+
+
