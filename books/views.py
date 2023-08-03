@@ -63,6 +63,10 @@ def search_results(request):
 
         return render(request, 'books/search_results.html', {'results': results, 'query': search_query})
 
+    return render(request, 'index.html')
+   
+    
+
         
 
 
