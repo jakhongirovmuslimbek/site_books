@@ -1,4 +1,3 @@
-
 from .serializers import *
 from books.models import *
 from rest_framework.views import APIView
@@ -10,16 +9,13 @@ class CategoryView(APIView):
     def get(self, request):
         category = CategoryModel.objects.all()
         serializer = CategorySerializer(category, many=True)
-
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 class BooksView(APIView):
     def get(self, request):
         books = BookModel.objects.all()
         serializer = BookSerializer(books, many=True)
-
         return Response(serializer.data, status=status.HTTP_200_OK)
-
 
 # for users only
 class UserView(APIView):
@@ -31,7 +27,6 @@ class UserView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-# 09.08.2023
 @api_view(['GET'])
 def by_category_id(request, id):
     by_category = BookModel.objects.filter(category_id=id)
@@ -53,5 +48,3 @@ class BookIDView(APIView):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         else:
             return Response({'message': 'Book ID was not found!'}, status=status.HTTP_404_NOT_FOUND)
-
-

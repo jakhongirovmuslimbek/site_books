@@ -1,4 +1,3 @@
-
 from rest_framework import serializers
 from books.models import *
 
@@ -8,10 +7,8 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 class BookSerializer(serializers.ModelSerializer):
-    
     book_img = serializers.SerializerMethodField()
-
-    def get_book_img(self, obj):                            # obj - objects
+    def get_book_img(self, obj):                          
         return f"http://127.0.0.1:8000{obj.book_img.url}"
 
     class Meta:
@@ -21,7 +18,6 @@ class BookSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = UsersModel
-        # fields = "__all__"
         fields = ['telegram_id', 'lang']
 
     def validate(self, data):
