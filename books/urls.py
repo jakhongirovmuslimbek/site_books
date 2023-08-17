@@ -5,7 +5,7 @@ urlpatterns = [
     path("categories/<str:cate_id>/", categoryView, name='categories'),
     path("mybooks/<str:user_id>/", mybooksView, name='mybooks'),
     path("audios/<str:book_id>/", audiosView, name='audios'),
-    path("search_results", search_results, name='search_results'),
+    path("search_results/", search_results, name='search_results'),
 
 ]
 

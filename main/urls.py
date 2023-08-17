@@ -24,10 +24,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users.urls')),
     path('books/', include('books.urls')),
-    
     path('', views.indexView, name='home'),
 
-    # api 
+    # for api 
     path('api/v1/', include('api.urls')),
 ]
 

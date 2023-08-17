@@ -26,7 +26,6 @@ class UserView(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
 @api_view(['GET'])
 def by_category_id(request, id):
     by_category = BookModel.objects.filter(category_id=id)

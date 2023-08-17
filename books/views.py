@@ -3,10 +3,6 @@ from django.views.generic import ListView
 from .models import CategoryModel, AudioModel, BookModel
 
 
-# class CategoryView(ListView):
-#     model = CategoryModel
-#     template_name = 'index.html'
-
 def indexView(request):
     cat = CategoryModel.objects.all()
     books = BookModel.objects.all()
@@ -15,9 +11,6 @@ def indexView(request):
         'books': books,
     }
     return render(request, 'index.html', data)    
-
-
-
 
 
 def categoryView(request, cate_id):
@@ -31,12 +24,11 @@ def categoryView(request, cate_id):
     return render(request, 'books/categories.html', data)
 
 
-def mybooksView(request, user_id ):
+def mybooksView(request, user_id):
     users_book = BookModel.objects.all().filter(user=user_id)
     
     data = {
         "users_book": users_book,
-
     }     
     return render(request, 'books/my_books.html', data)
 
@@ -46,9 +38,7 @@ def audiosView(request, book_id):
 
     data = {
         "book_": book,
-        "audios": audios
-        
-
+        "audios": audios       
     }     
     return render(request, 'books/audios.html', data)  
 

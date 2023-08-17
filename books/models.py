@@ -8,7 +8,6 @@ class CategoryModel(models.Model):
     def __str__(self):
         return self.name
 
-
 class BookModel(models.Model):
     category = models.ForeignKey(CategoryModel, on_delete=models.CASCADE, related_name='category')
     book_name = models.CharField(max_length=250)
